@@ -16,7 +16,6 @@ use LazyPDO\LazyPDO;
 class LazyPDOTest extends \PHPUnit_Framework_TestCase
 {
     private $pdo;
-
     private $lazy;
 
     protected function setUp()
@@ -79,7 +78,7 @@ class LazyPDOTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testSetAttributeShouldBePassedToRealPDOAndGatheredInOptionsIfOk()
+    public function testAttributeIsPassedToRealPDOAndGatheredInOptionsIfOk()
     {
         $this->pdo->expects($this->once())
             ->method('setAttribute')
@@ -90,7 +89,7 @@ class LazyPDOTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('my_value', $props[3]['my_attr']);
     }
 
-    public function testSetAttributeShouldNotBeGatheredOnFail()
+    public function testAttributeIsNotBeGatheredOnFail()
     {
         $this->pdo->expects($this->once())
             ->method('setAttribute')

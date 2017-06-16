@@ -19,7 +19,7 @@ abstract class PDOStatementDecorator extends \PDOStatement
     abstract protected function getPDOStatement();
 
     /**
-     * Original queryString can not be copied over. Use this method assess $queryString
+     * Original queryString can not be copied over. Use this method access $queryString
      * @return string
      */
     public function getQueryString()

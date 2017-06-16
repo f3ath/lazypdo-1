@@ -11,26 +11,24 @@
 
 namespace LazyPDO;
 
-use PDOStatement;
-
 class SimplePDOStatementDecorator extends PDOStatementDecorator
 {
     /**
-     * @var PDOStatement
+     * @var \PDOStatement
      */
     private $pdoStatement;
 
     /**
      * SimplePDOStatementDecorator constructor.
-     * @param PDOStatement $pdoStatement
+     * @param \PDOStatement $pdoStatement
      */
-    public function __construct(PDOStatement $pdoStatement)
+    public function __construct(\PDOStatement $pdoStatement)
     {
         $this->pdoStatement = $pdoStatement;
     }
 
     /**
-     * @return PDOStatement
+     * @return \PDOStatement
      */
     protected function getPDOStatement()
     {

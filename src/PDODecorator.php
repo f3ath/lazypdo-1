@@ -11,18 +11,15 @@
 
 namespace LazyPDO;
 
-use PDO;
-use PDOStatement;
-
 /**
  * PDO decorator, redirect calls to PDO
  */
-abstract class PDODecorator extends PDO
+abstract class PDODecorator extends \PDO
 {
     /**
      * Get the PDO object
      *
-     * @return PDO
+     * @return \PDO
      */
     abstract protected function getPDO();
 
@@ -133,7 +130,7 @@ abstract class PDODecorator extends PDO
      *
      * @param string $statement
      * @param array $options
-     * @return PDOStatement
+     * @return \PDOStatement
      */
     public function prepare($statement, $options = array())
     {
@@ -147,7 +144,7 @@ abstract class PDODecorator extends PDO
      * @param int $type
      * @return string
      */
-    public function quote($string, $type = PDO::PARAM_STR)
+    public function quote($string, $type = \PDO::PARAM_STR)
     {
         return call_user_func_array(array($this->getPDO(), __FUNCTION__), func_get_args());
     }
@@ -168,7 +165,7 @@ abstract class PDODecorator extends PDO
      * overloading is supported
      *
      * @param string $statement
-     * @return PDOStatement
+     * @return \PDOStatement
      */
     public function query($statement)
     {
